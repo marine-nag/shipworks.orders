@@ -18,7 +18,7 @@ define(function (require) {
             var items = [{
                 text: "Move to ShipWorks",  // Button name
                 key: "placeholderPrintInvoiceTemplate",  // Button id (unique)
-                icon: "fa fa-print",  // Button icon
+                icon: "fa fa-angle-double-up",  // Button icon
                 content: {
                     moduleName: "placeholderShipWorksTemplate",
                     controlName: "placeholderShipWorksTemplate"
