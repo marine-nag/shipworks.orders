@@ -47,7 +47,10 @@ define(function (require) {
                 ids.push(id);
             }
             
-            alert(ids.length);
+            //alert(ids.length);
+            var requestBody = { orderIDs: ids };
+            var url = "https://cf62-46-119-185-221.ngrok.io/Order/addOrdersToShipWorks";
+            
             
 
             //$scope.getOrderDataBySomeID();
