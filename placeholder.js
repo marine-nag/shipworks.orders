@@ -39,6 +39,12 @@ define(function (require) {
                 alert('Please select at least one order');
                 return;
             }
+            
+            for (int i = 0; i < orders.length; i++)
+            {
+                var t = orders[i];
+            }
+            
 
             //$scope.getOrderDataBySomeID();
         };
