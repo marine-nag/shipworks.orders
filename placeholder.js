@@ -53,9 +53,7 @@ define(function (require) {
             
             const dataToSend = JSON.stringify(requestBody);
             let dataReceived = ""; 
-            fetch("", {
-                credentials: "same-origin",
-                mode: "same-origin",
+            fetch(url, {
                 method: "post",
                 headers: { "Content-Type": "application/json" },
                 body: dataToSend
