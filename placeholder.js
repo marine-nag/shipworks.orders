@@ -11,7 +11,7 @@ define(function (require) {
 
     var docDefinition;
 
-    var placeHolder = function ($scope, $element, controlService) {
+    var placeHolder = function ($scope, $element, $http, controlService) {
 
         //const _this = this;
         this.getItems = () => {
