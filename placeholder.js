@@ -51,7 +51,17 @@ define(function (require) {
             var requestBody = { orderIDs: ids };
             var url = "https://cf62-46-119-185-221.ngrok.io/Order/addOrdersToShipWorks";
             
-            const dataToSend = JSON.stringify(requestBody);
+            
+						$http({
+							method: 'POST',
+							url: url,
+                            data: requestBody
+
+						}).then(function (response) {
+                            console.log(response);					
+						});
+            
+            /*const dataToSend = JSON.stringify(requestBody);
             let dataReceived = ""; 
             fetch(url, {
                 method: "post",
@@ -72,7 +82,7 @@ define(function (require) {
                 .catch(err => {
                     if (err === "server") return
                     console.log(err)
-                })
+                })*/
 
             console.log(`Received: ${dataReceived}`);    
 
