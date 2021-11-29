@@ -54,8 +54,7 @@ define(function (require) {
             
 						$http({
 							method: 'POST',
-							url: url,
-                            data: requestBody
+							url: url,  data: requestBody
 
 						}).then(function (response) {
                             console.log(response);					
