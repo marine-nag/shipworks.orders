@@ -51,15 +51,38 @@ define(function (require) {
             var requestBody = { orderIDs: ids };
             var url = "https://cf62-46-119-185-221.ngrok.io/Order/addOrdersToShipWorks";
             
-            
-						$http({
-							method: 'POST',
-							url: url,  data: requestBody
+          
+		
+		$http.post(url, JSON.stringify(requestBody)).then(function (response) {
 
-						}).then(function (response) {
-                            console.log(response);					
-						});
-            
+if (response.data)
+
+$scope.msg = "Post Data Submitted Successfully!";
+
+}, function (response) {
+
+$scope.msg = "Service not Exists";
+
+$scope.statusval = response.status;
+
+$scope.statustext = response.statusText;
+
+$scope.headers = response.headers();
+
+});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
             /*const dataToSend = JSON.stringify(requestBody);
             let dataReceived = ""; 
             fetch(url, {
@@ -83,7 +106,7 @@ define(function (require) {
                     console.log(err)
                 })*/
 
-            console.log(`Received: ${dataReceived}`);    
+            //console.log(`Received: ${dataReceived}`);    
 
             //$scope.getOrderDataBySomeID();
         };
