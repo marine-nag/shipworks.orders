@@ -40,10 +40,14 @@ define(function (require) {
                 return;
             }
             
+            var ids = [];
             for (var i = 0; i < orders.length; i++)
             {
-                var t = orders[i];
+                var id = orders[i].id;
+                ids.push(id);
             }
+            
+            alert(ids.length);
             
 
             //$scope.getOrderDataBySomeID();
