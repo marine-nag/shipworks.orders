@@ -48,58 +48,20 @@ define(function (require) {
             }
             
             //alert(ids.length);
-            var requestBody = { orderIDs: ids };
-            var url = "https://cf62-46-119-185-221.ngrok.io/Order/addOrdersToShipWorks";
-            
-       
+            var requestBody = { orderIds: ids };
 		
+	const self = this;
 		
-		
-		
-		
-		$http({
-							method: 'POST',
-			data:  JSON.stringify(requestBody),
-							url: url
-						}).then(function (response) {
-							const data = response.data;
-
-							
-						});
-
-		
-		
-		
-		
-		
-		
-		
-            /*const dataToSend = JSON.stringify(requestBody);
-            let dataReceived = ""; 
-            fetch(url, {
-                method: "post",
-                headers: { "Content-Type": "application/json" },
-                body: dataToSend
-            })
-                .then(resp => {
-                    if (resp.status === 200) {
-                        return resp.json()
-                    } else {
-                        console.log("Status: " + resp.status)
-                        return Promise.reject("server")
-                    }
-                })
-                .then(dataJson => {
-                    dataReceived = JSON.parse(dataJson)
-                })
-                .catch(err => {
-                    if (err === "server") return
-                    console.log(err)
-                })*/
-
-            //console.log(`Received: ${dataReceived}`);    
-
-            //$scope.getOrderDataBySomeID();
+		var obj = { applicationName: '185_ShipWorks_pluggable', macroName: '185_ShipWorks_createOrders', orderIds: ids };
+            const macroService = new Services.MacroService(self);
+		// RUN Macro to get necessary data
+            macroService.Run(obj, function (data) {
+                if ((data.error == null) && (data.result != null) && (data.result.length != 0)) {
+                    alert("Great!");
+                } else {
+                    alert('Errors...');
+                }
+            });
         };
 
        
